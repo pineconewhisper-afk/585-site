@@ -10,7 +10,7 @@
     <!-- ========================================================= -->
     <title>585 Direct | #1 Cannabis, Weed & Smoke Shop Delivery Rochester NY</title>
     
-    <meta name="description" content="Rochester's top-rated mobile cannabis dispensary. Fast, secure weed delivery. Shop premium flower, concentrates, edibles, and vapes. Cash, CashApp & Apple Pay accepted.">
+    <meta name="description" content="Rochester's top-rated mobile cannabis dispensary. Fast, secure weed delivery. Shop premium flower, concentrates, edibles, and vapes. Cash, CashApp, Venmo & Apple Pay accepted.">
     <!-- Ultra-Aggressive Keyword Matrix -->
     <meta name="keywords" content="Rochester cannabis delivery, weed near me, buy pot Rochester, Good Life dispensary alternative, jaxpacks alternative, 585plug alternative, 585 plug, recreational dispensary delivery Rochester NY, cannabis delivery Monroe County, buy cannabis online Rochester, weed delivery 14605, exotic flower NY, cannabis concentrates Rochester, moon rocks delivery, THC drinks Rochester, Henrietta dispensary delivery, Greece NY cannabis, THC delivery Rochester, Webster NY cannabis, Pittsford cannabis delivery, glass pipes delivery Rochester, rolling papers Rochester, best smoke shop near me, closest dispensary to me, marijuana delivery Rochester, buy zaza Rochester, cannabis carts delivery, marijuana delivery Monroe County, highest quality weed Rochester">
     
@@ -40,7 +40,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- 🌟 Google SERP 5-Star Snippet & Entity Schema 🌟 -->
+    <!-- 🌟 Google SERP 5-Star Snippet, FAQ & Entity Schema 🌟 -->
     <script type="application/ld+json">
     [
       {
@@ -88,6 +88,28 @@
           "opens": "10:00",
           "closes": "22:00"
         }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I get weed delivered in Rochester NY?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Simply add your desired cannabis products to your bag using our live menu, enter your delivery address in Monroe County, and choose a dispatch time. Your order is securely formatted and sent to our dispatchers via SMS."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need a medical marijuana card to order?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No! We operate strictly under New York State recreational guidelines. You only need to be 21 years of age or older. We verify your valid Photo ID securely via text message."
+            }
+          }
+        ]
       }
     ]
     </script>
@@ -108,13 +130,11 @@
                     animation: { 
                         'float-slow': 'float 6s ease-in-out infinite', 
                         'hero-reveal': 'heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                        'slide-fade': 'slideFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
                         'shimmer-btn': 'shimmerBtn 3s infinite linear'
                     },
                     keyframes: { 
                         float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } }, 
                         heroReveal: { '0%': { opacity: 0, transform: 'translateY(20px) scale(0.98)' }, '100%': { opacity: 1, transform: 'translateY(0) scale(1)' } },
-                        slideFade: { '0%': { opacity: 0, transform: 'translateX(30px)' }, '100%': { opacity: 1, transform: 'translateX(0)' } },
                         shimmerBtn: { '0%': { backgroundPosition: '-200% center' }, '100%': { backgroundPosition: '200% center' } }
                     }
                 }
@@ -188,15 +208,18 @@
 
         .bg-pattern { background-image: radial-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px); background-size: 24px 24px; }
         
-        /* 💬 Smooth Review Slider */
-        .review-slide { display: none; animation: slideFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .review-active { display: block; }
-        
         /* FAQ Animation */
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
         details[open] summary ~ * { animation: fade-in-down 0.3s ease-in-out; }
         @keyframes fade-in-down { 0% { opacity: 0; transform: translateY(-10px); } 100% { opacity: 1; transform: translateY(0); } }
+
+        /* Dynamic Floating App Cart */
+        #floating-cart-btn {
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); 
+            animation: pulseGlow 2.5s infinite;
+        }
+        @keyframes pulseGlow { 70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
     </style>
 </head>
 <body id="top" class="flex flex-col min-h-screen bg-pattern">
@@ -221,15 +244,15 @@
             <p class="text-neutral-500 mb-10 font-medium leading-relaxed">Verified adult access required for Rochester's live cannabis delivery menu.</p>
             <div class="flex flex-col gap-4">
                 <button onclick="confirmAge()" class="bg-brand-600 text-white font-extrabold py-5 rounded-2xl text-lg shadow-float btn-haptic transition-all shimmer-btn">Yes, I am 21+</button>
-                <a href="https://google.com" class="text-neutral-400 font-bold py-4">Exit Site</a>
+                <a href="https://google.com" class="text-neutral-400 font-bold py-4 hover:text-neutral-900 transition-colors">Exit Site</a>
             </div>
         </div>
     </div>
 
-    <!-- CART & CHECKOUT -->
+    <!-- CART & CHECKOUT (RESTORED PREMIUM UI) -->
     <div id="cart-overlay" onclick="toggleCart()" class="fixed inset-0 bg-neutral-900/60 backdrop-blur-md z-[70] hidden opacity-0 transition-opacity duration-300"></div>
     <aside id="cart-drawer" class="fixed inset-y-0 right-0 w-full md:w-[480px] bg-white transform translate-x-full z-[80] flex flex-col shadow-2xl border-l border-neutral-100">
-        <div class="p-6 flex justify-between items-center border-b">
+        <div class="p-6 flex justify-between items-center border-b border-neutral-100">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-brand-50 rounded-full flex items-center justify-center text-brand-600"><i data-lucide="shopping-bag" class="w-5 h-5"></i></div>
                 <h2 class="text-2xl font-extrabold text-neutral-900">Your Order</h2>
@@ -237,36 +260,70 @@
             <button onclick="toggleCart()" class="p-2 hover:bg-neutral-100 rounded-full transition-colors"><i data-lucide="x" class="w-6 h-6 text-neutral-400"></i></button>
         </div>
         
-        <div class="flex-1 overflow-y-auto p-6" id="cart-items-list">
-            <div id="empty-cart-msg" class="flex flex-col items-center justify-center text-center h-full pb-20 opacity-60">
+        <!-- FLAWLESS CART CONTAINER STRUCTURE -->
+        <div class="flex-1 overflow-y-auto p-6 relative">
+            <div id="empty-cart-msg" class="absolute inset-0 flex flex-col items-center justify-center text-center pb-20 opacity-60">
                 <i data-lucide="shopping-cart" class="w-16 h-16 text-neutral-300 mb-4"></i>
                 <p class="text-neutral-900 font-extrabold text-xl mb-2">Your bag is empty</p>
                 <p class="text-neutral-500 text-sm font-medium">Select premium cannabis to get started.</p>
             </div>
+            <div id="cart-items-list" class="space-y-3 relative z-10"></div>
         </div>
 
-        <div id="cart-summary" class="p-6 border-t hidden bg-neutral-50">
-            <div class="flex justify-between mb-4"><span class="font-bold text-neutral-500">Subtotal</span><span id="cart-subtotal" class="text-2xl font-black text-neutral-900"></span></div>
-            <button onclick="proceedToCheckout()" class="w-full bg-brand-600 text-white py-5 rounded-2xl font-bold btn-haptic shadow-float shimmer-btn">Proceed to Checkout</button>
+        <div id="cart-summary" class="p-6 border-t border-neutral-100 hidden bg-neutral-50">
+            <div class="flex justify-between items-end mb-4">
+                <span class="font-bold text-neutral-500 uppercase tracking-widest text-xs">Subtotal</span>
+                <span id="cart-subtotal" class="text-3xl font-black text-neutral-900"></span>
+            </div>
+            <button onclick="proceedToCheckout()" class="w-full bg-brand-600 text-white py-5 rounded-2xl font-bold text-lg btn-haptic shadow-float shimmer-btn">Proceed to Checkout</button>
         </div>
         
-        <div id="cart-step-checkout" class="hidden p-6 space-y-6 overflow-y-auto">
-            <button onclick="backToCart()" class="flex items-center gap-2 font-bold text-neutral-400 hover:text-neutral-900 transition-colors"><i data-lucide="arrow-left" class="w-4 h-4"></i> Edit Order</button>
-            <div class="space-y-4">
-                <input type="text" id="checkout-street" placeholder="Street Address & Apt" class="w-full p-4 bg-white border border-neutral-200 rounded-xl font-bold outline-none focus:border-brand-500 transition-colors">
-                <input type="text" id="checkout-zip" placeholder="Zip Code" maxlength="5" oninput="handleZipInput(this.value)" class="w-full p-4 bg-white border border-neutral-200 rounded-xl font-bold outline-none focus:border-brand-500 transition-colors">
+        <!-- RESTORED PREMIUM CHECKOUT UI -->
+        <div id="cart-step-checkout" class="hidden p-6 space-y-6 overflow-y-auto pb-32">
+            <button onclick="backToCart()" class="flex items-center gap-2 font-bold text-neutral-400 hover:text-neutral-900 transition-colors bg-neutral-50 py-2 px-4 rounded-xl w-max"><i data-lucide="arrow-left" class="w-4 h-4"></i> Edit Order</button>
+            
+            <div class="space-y-3">
+                <label class="text-xs font-black uppercase text-neutral-400 tracking-widest ml-1 flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-500"></i> Delivery Address</label>
+                <input type="text" id="checkout-street" placeholder="Street Address & Apt" class="w-full p-4 bg-white border border-neutral-200 rounded-xl font-bold outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all shadow-sm">
+                <div class="grid grid-cols-2 gap-3">
+                    <input type="text" id="checkout-city" value="Rochester" placeholder="City" class="w-full p-4 bg-white border border-neutral-200 rounded-xl font-bold outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all shadow-sm">
+                    <input type="text" id="checkout-zip" placeholder="Zip Code" maxlength="5" oninput="handleZipInput(this.value)" class="w-full p-4 bg-white border border-neutral-200 rounded-xl font-bold outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all shadow-sm">
+                </div>
             </div>
-            <div id="delivery-zone-result" class="hidden p-4 bg-brand-50 rounded-xl font-bold text-brand-700 text-center border border-brand-200"></div>
-            <div class="grid grid-cols-3 gap-2" id="route-buttons">
-                <button onclick="setRoute('3:00 PM')" id="route-btn-3:00 PM" class="p-3 border-2 rounded-xl font-bold text-[10px] bg-white transition-all uppercase tracking-widest hover:border-brand-300">3:00 PM</button>
-                <button onclick="setRoute('6:00 PM')" id="route-btn-6:00 PM" class="p-3 border-2 rounded-xl font-bold text-[10px] bg-white transition-all uppercase tracking-widest hover:border-brand-300">6:00 PM</button>
-                <button onclick="setRoute('9:00 PM')" id="route-btn-9:00 PM" class="p-3 border-2 rounded-xl font-bold text-[10px] bg-white transition-all uppercase tracking-widest hover:border-brand-300">9:00 PM</button>
+            
+            <div id="delivery-zone-result" class="hidden p-4 bg-brand-50 rounded-xl font-bold text-brand-700 text-center border border-brand-200 shadow-sm"></div>
+            
+            <div class="space-y-3">
+                <label class="text-xs font-black uppercase text-neutral-400 tracking-widest ml-1 flex items-center gap-1.5"><i data-lucide="clock" class="w-3.5 h-3.5 text-brand-500"></i> Dispatch Route</label>
+                <div class="grid grid-cols-3 gap-2" id="route-buttons">
+                    <button onclick="setRoute('3:00 PM')" id="route-btn-3:00 PM" class="p-3 border-2 border-neutral-100 rounded-xl font-bold text-base bg-white transition-all uppercase tracking-widest hover:border-brand-300 text-neutral-600 shadow-sm flex flex-col items-center justify-center min-h-[64px]">3:00 <span class="text-[10px] block opacity-70 mt-0.5">PM</span></button>
+                    <button onclick="setRoute('6:00 PM')" id="route-btn-6:00 PM" class="p-3 border-2 border-neutral-100 rounded-xl font-bold text-base bg-white transition-all uppercase tracking-widest hover:border-brand-300 text-neutral-600 shadow-sm flex flex-col items-center justify-center min-h-[64px]">6:00 <span class="text-[10px] block opacity-70 mt-0.5">PM</span></button>
+                    <button onclick="setRoute('9:00 PM')" id="route-btn-9:00 PM" class="p-3 border-2 border-neutral-100 rounded-xl font-bold text-base bg-white transition-all uppercase tracking-widest hover:border-brand-300 text-neutral-600 shadow-sm flex flex-col items-center justify-center min-h-[64px]">9:00 <span class="text-[10px] block opacity-70 mt-0.5">PM</span></button>
+                </div>
+                <!-- RESTORED PROTOCOL BOX -->
+                <div class="bg-brand-50 border border-brand-100 rounded-xl p-4 flex items-start gap-3 mt-3 shadow-sm">
+                    <i data-lucide="info" class="w-5 h-5 text-brand-500 shrink-0 mt-0.5"></i>
+                    <div class="text-[11px] text-brand-800 leading-relaxed font-medium">
+                        <strong class="uppercase tracking-widest font-black block mb-0.5">Route Protocol</strong>
+                        Orders close strictly 30 mins before dispatch. You will receive an exact ETA via text ~30 mins prior to the route starting.
+                    </div>
+                </div>
             </div>
-            <div class="grid grid-cols-2 gap-2" id="pay-buttons">
-                <button onclick="setPayment('Cash')" id="pay-btn-Cash" class="p-4 border-2 rounded-xl font-bold text-sm bg-white transition-all hover:border-brand-300">Cash</button>
-                <button onclick="setPayment('CashApp')" id="pay-btn-CashApp" class="p-4 border-2 rounded-xl font-bold text-sm bg-white transition-all hover:border-brand-300">CashApp</button>
+
+            <div class="space-y-3">
+                <label class="text-xs font-black uppercase text-neutral-400 tracking-widest ml-1 flex items-center gap-1.5"><i data-lucide="wallet" class="w-3.5 h-3.5 text-brand-500"></i> Payment Method</label>
+                <!-- RESTORED ICONS AND APPLE PAY/VENMO -->
+                <div class="grid grid-cols-2 gap-3" id="pay-buttons">
+                    <button onclick="setPayment('Cash')" id="pay-btn-Cash" class="p-4 border-2 border-neutral-100 rounded-xl font-bold text-sm bg-white transition-all hover:border-brand-300 text-neutral-600 shadow-sm flex items-center justify-start gap-3 min-h-[56px]"><i data-lucide="banknote" class="w-5 h-5 text-emerald-500"></i> Cash</button>
+                    <button onclick="setPayment('CashApp')" id="pay-btn-CashApp" class="p-4 border-2 border-neutral-100 rounded-xl font-bold text-sm bg-white transition-all hover:border-brand-300 text-neutral-600 shadow-sm flex items-center justify-start gap-3 min-h-[56px]"><i data-lucide="smartphone" class="w-5 h-5 text-emerald-500"></i> CashApp</button>
+                    <button onclick="setPayment('Venmo')" id="pay-btn-Venmo" class="p-4 border-2 border-neutral-100 rounded-xl font-bold text-sm bg-white transition-all hover:border-brand-300 text-neutral-600 shadow-sm flex items-center justify-start gap-3 min-h-[56px]"><i data-lucide="send" class="w-5 h-5 text-blue-500"></i> Venmo</button>
+                    <button onclick="setPayment('Apple Pay')" id="pay-btn-Apple Pay" class="p-4 border-2 border-neutral-100 rounded-xl font-bold text-sm bg-white transition-all hover:border-brand-300 text-neutral-600 shadow-sm flex items-center justify-start gap-3 min-h-[56px]"><i data-lucide="apple" class="w-5 h-5 text-neutral-900"></i> Apple Pay</button>
+                </div>
             </div>
-            <button id="final-submit" onclick="submitOrder()" disabled class="w-full bg-neutral-900 text-white py-5 rounded-2xl font-bold disabled:opacity-30 shadow-lg btn-haptic shimmer-btn">Text Order to Dispatch</button>
+
+            <button id="final-submit" onclick="submitOrder()" disabled class="w-full bg-neutral-900 text-white py-5 rounded-2xl font-bold text-lg disabled:opacity-30 shadow-lg btn-haptic shimmer-btn flex items-center justify-center gap-2 mt-6">
+                <i data-lucide="message-square" class="w-5 h-5"></i> Text Order to Dispatch
+            </button>
             <input type="hidden" id="route-select"><input type="hidden" id="pay-select">
         </div>
     </aside>
@@ -282,9 +339,16 @@
                 </div>
                 <button onclick="closeVariantModal()" aria-label="Close Options" class="text-neutral-400 hover:text-neutral-900 bg-neutral-50 p-2.5 rounded-full transition-colors btn-haptic shrink-0 border border-neutral-200"><i data-lucide="x" class="w-5 h-5"></i></button>
             </div>
-            <div id="variant-modal-content" class="p-6 overflow-y-auto bg-neutral-50/50 pb-10"></div>
+            <div id="variant-modal-content" class="p-6 overflow-y-auto bg-neutral-50/50 pb-10 space-y-3"></div>
         </div>
     </div>
+
+    <!-- MOBILE FLOATING CART (UBEREATS STYLE) RESTORED -->
+    <button id="floating-cart-btn" onclick="toggleCart()" aria-label="View Floating Cart" class="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-[45] bg-neutral-900 text-white px-6 py-4 rounded-full shadow-[0_15px_40px_rgba(0,0,0,0.4)] flex items-center gap-4 transition-all duration-500 translate-y-40 opacity-0 pointer-events-none w-[90%] max-w-sm cursor-pointer btn-haptic shimmer-btn min-h-[56px]">
+        <div class="bg-brand-500 text-white font-extrabold w-8 h-8 rounded-full flex items-center justify-center text-xs shadow-inner" id="float-cart-count">0</div>
+        <span class="font-extrabold text-sm uppercase tracking-widest flex-1 text-center">View Order</span>
+        <span class="font-black text-lg" id="float-cart-total">$0</span>
+    </button>
 
     <!-- MOBILE HEADER -->
     <header id="mobile-header" class="lg:hidden fixed top-0 left-0 right-0 z-40 glass-nav h-16 flex items-center justify-between px-4">
@@ -294,7 +358,7 @@
                 <span class="hidden text-xl font-black text-brand-600 tracking-tighter">585 DIRECT</span>
             </div>
         </a>
-        <button onclick="toggleCart()" class="p-3 bg-neutral-50 rounded-full relative">
+        <button onclick="toggleCart()" class="p-3 bg-neutral-50 rounded-full relative transition-colors active:bg-neutral-200 btn-haptic">
             <i data-lucide="shopping-bag" class="w-5 h-5 text-neutral-800"></i>
             <span id="mobile-header-badge" class="absolute -top-1 -right-1 bg-brand-500 text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-black hidden border-2 border-white shadow-sm">0</span>
         </button>
@@ -316,7 +380,7 @@
             </nav>
             <button onclick="toggleCart()" class="relative flex items-center gap-3 bg-neutral-900 text-white px-8 py-4 rounded-full font-bold shadow-lg btn-haptic hover:bg-black transition-all">
                 <i data-lucide="shopping-cart" class="w-4 h-4"></i> View Bag
-                <span id="header-cart-badge" class="absolute -top-1.5 -right-1.5 bg-brand-500 text-white text-[11px] w-6 h-6 flex items-center justify-center rounded-full hidden border-2 border-white font-black">0</span>
+                <span id="header-cart-badge" class="absolute -top-1.5 -right-1.5 bg-brand-500 text-white text-[11px] w-6 h-6 flex items-center justify-center rounded-full hidden border-2 border-white font-black shadow-sm">0</span>
             </button>
         </div>
     </header>
@@ -334,7 +398,7 @@
             <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-3 items-center">
                 <div class="relative w-full md:w-1/3 px-4">
                     <i data-lucide="search" class="absolute left-8 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-300"></i>
-                    <input type="text" id="search-input" placeholder="Search menu..." oninput="handleSearch(this.value)" class="w-full bg-neutral-50 rounded-xl py-2.5 pl-10 pr-4 font-semibold outline-none focus:ring-2 focus:ring-brand-500/20 text-sm">
+                    <input type="text" id="search-input" placeholder="Search menu..." oninput="handleSearch(this.value)" class="w-full bg-neutral-50 rounded-xl py-2.5 pl-10 pr-4 font-semibold outline-none focus:ring-2 focus:ring-brand-500/20 text-sm transition-all">
                 </div>
                 <div id="category-filters" class="category-scroller">
                     <!-- Categories rendered via JS -->
@@ -348,9 +412,9 @@
 
         <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 hidden pt-12"></div>
 
-        <!-- 🌟 DYNAMIC REVIEW CAROUSEL - RESTORED 5-STAR GLORY -->
-        <section id="reviews-section" class="py-20 mt-20 border-t border-neutral-100 text-center">
-            <h2 class="text-4xl font-extrabold tracking-tight">Verified Local Reviews</h2>
+        <!-- 🌟 DYNAMIC REVIEW CAROUSEL - RESTORED 5-STAR HORIZONTAL SWIPE -->
+        <section id="reviews-section" class="py-20 mt-20 border-t border-neutral-100">
+            <h2 class="text-4xl font-extrabold text-center tracking-tight text-neutral-900">Verified Local Reviews</h2>
             <div class="flex items-center justify-center gap-2 mt-4 mb-12 text-gold-400">
                 <i data-lucide="star" class="w-6 h-6 fill-current pointer-events-none"></i>
                 <i data-lucide="star" class="w-6 h-6 fill-current pointer-events-none"></i>
@@ -360,33 +424,40 @@
                 <span class="text-neutral-900 font-extrabold text-xl ml-2">5.0 / 5.0</span>
             </div>
             
-            <div id="review-container" class="max-w-2xl mx-auto relative px-6 h-56 md:h-48">
-                <div class="review-slide review-active bg-white p-8 rounded-[2rem] border border-neutral-100 shadow-soft">
+            <div class="flex overflow-x-auto gap-6 pb-8 px-4 md:px-6 hide-scrollbar" style="scroll-snap-type: x mandatory;">
+                <!-- Review Card 1 -->
+                <div class="shrink-0 w-[85vw] sm:w-[400px] bg-white p-8 rounded-[2rem] border border-neutral-100 shadow-soft hover:shadow-float transition-all" style="scroll-snap-align: center;">
                     <p class="text-lg font-medium italic text-neutral-700 leading-relaxed">"Best weed delivery in the 585 hands down. Driver was super professional and fast. Packaging is top notch."</p>
-                    <div class="mt-6 flex items-center justify-center gap-2">
-                        <cite class="font-black text-neutral-900 uppercase tracking-widest text-[10px] not-italic">— Sarah M. (Park Ave)</cite>
-                        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500"></i>
+                    <div class="mt-6 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center font-black text-xs uppercase">SM</div>
+                        <div>
+                            <cite class="font-extrabold text-neutral-900 not-italic uppercase tracking-widest text-[10px] block">Sarah M. (Park Ave)</cite>
+                            <span class="text-xs text-neutral-400 font-bold flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3 h-3 text-brand-500"></i> Verified Buyer</span>
+                        </div>
                     </div>
                 </div>
-                <div class="review-slide bg-white p-8 rounded-[2rem] border border-neutral-100 shadow-soft">
+                <!-- Review Card 2 -->
+                <div class="shrink-0 w-[85vw] sm:w-[400px] bg-white p-8 rounded-[2rem] border border-neutral-100 shadow-soft hover:shadow-float transition-all" style="scroll-snap-align: center;">
                     <p class="text-lg font-medium italic text-neutral-700 leading-relaxed">"Quality is always incredible regardless of tier. The UI to order is super easy on my phone. Reliable as it gets."</p>
-                    <div class="mt-6 flex items-center justify-center gap-2">
-                        <cite class="font-black text-neutral-900 uppercase tracking-widest text-[10px] not-italic">— David T. (Henrietta)</cite>
-                        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500"></i>
+                    <div class="mt-6 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center font-black text-xs uppercase">DT</div>
+                        <div>
+                            <cite class="font-extrabold text-neutral-900 not-italic uppercase tracking-widest text-[10px] block">David T. (Henrietta)</cite>
+                            <span class="text-xs text-neutral-400 font-bold flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3 h-3 text-brand-500"></i> Verified Buyer</span>
+                        </div>
                     </div>
                 </div>
-                <div class="review-slide bg-white p-8 rounded-[2rem] border border-neutral-100 shadow-soft">
+                <!-- Review Card 3 -->
+                <div class="shrink-0 w-[85vw] sm:w-[400px] bg-white p-8 rounded-[2rem] border border-neutral-100 shadow-soft hover:shadow-float transition-all" style="scroll-snap-align: center;">
                     <p class="text-lg font-medium italic text-neutral-700 leading-relaxed">"Massive menu and zero wait time compared to dispensaries. My go-to for extracts and glass."</p>
-                    <div class="mt-6 flex items-center justify-center gap-2">
-                        <cite class="font-black text-neutral-900 uppercase tracking-widest text-[10px] not-italic">— JL (Greece NY)</cite>
-                        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500"></i>
+                    <div class="mt-6 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center font-black text-xs uppercase">JL</div>
+                        <div>
+                            <cite class="font-extrabold text-neutral-900 not-italic uppercase tracking-widest text-[10px] block">Jessica L. (Greece NY)</cite>
+                            <span class="text-xs text-neutral-400 font-bold flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3 h-3 text-brand-500"></i> Verified Buyer</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="flex justify-center gap-2 mt-8" id="review-dots">
-                <div class="w-2 h-2 rounded-full bg-brand-500 transition-colors"></div>
-                <div class="w-2 h-2 rounded-full bg-neutral-200 transition-colors"></div>
-                <div class="w-2 h-2 rounded-full bg-neutral-200 transition-colors"></div>
             </div>
         </section>
 
@@ -479,7 +550,6 @@
 
         document.addEventListener('DOMContentLoaded', async () => {
             if(window.lucide) lucide.createIcons();
-            initReviews();
             try {
                 const res = await fetch(SHEET_URL + '&_=' + Date.now(), { cache: 'no-store' });
                 const text = await res.text();
@@ -563,20 +633,6 @@
             return variants.length > 0 ? { items: variants, isWeightBased } : null;
         }
 
-        function initReviews() {
-            let current = 0;
-            const slides = document.querySelectorAll('.review-slide');
-            const dots = document.querySelectorAll('#review-dots div');
-            if(slides.length < 2) return;
-            setInterval(() => {
-                slides[current].classList.remove('review-active');
-                dots[current].classList.replace('bg-brand-500', 'bg-neutral-200');
-                current = (current + 1) % slides.length;
-                slides[current].classList.add('review-active');
-                dots[current].classList.replace('bg-neutral-200', 'bg-brand-500');
-            }, 6000);
-        }
-
         function renderCategories() {
             const cats = ["All", ...new Set(inventory.map(i => i.category))];
             document.getElementById('category-filters').innerHTML = cats.map(c => `
@@ -590,22 +646,22 @@
         function renderShop() {
             const filtered = inventory.filter(i => i.name.toLowerCase().includes(searchQuery.toLowerCase()) && (activeCategory === "All" || i.category === activeCategory));
             document.getElementById('product-grid').innerHTML = filtered.map(p => `
-                <article class="product-card rounded-[2rem] overflow-hidden flex flex-col fade-up is-visible">
+                <article class="product-card rounded-[2.5rem] overflow-hidden flex flex-col fade-up is-visible">
                     <div class="aspect-square bg-neutral-50 cursor-pointer overflow-hidden relative" onclick="${p.variants ? `openVariantModal('${p.id}')` : `addToCart('${p.id}')`}">
                         <img src="${p.image}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" alt="${p.name} Delivery Rochester">
-                        <div class="absolute top-4 left-4"><span class="bg-white/95 backdrop-blur-md text-neutral-900 px-3 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest shadow-sm">${p.category}</span></div>
+                        <div class="absolute top-4 left-4"><span class="bg-white/95 backdrop-blur-md text-neutral-900 px-3 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest shadow-sm">${p.category}</span></div>
                     </div>
-                    <div class="p-6 flex flex-col flex-1">
-                        <h2 class="font-bold text-lg mb-2 text-neutral-900 leading-tight">${p.name}</h2>
+                    <div class="p-6 flex flex-col flex-1 bg-white relative z-10">
+                        <h2 class="font-bold text-lg mb-1 text-neutral-900 leading-tight">${p.name}</h2>
                         <div class="font-black text-brand-600 text-lg mb-2">${p.displayPrice || '$'+p.price}</div>
                         <p class="text-neutral-400 text-sm mb-6 line-clamp-2 font-medium leading-relaxed">${p.description}</p>
                         
                         <div class="mt-auto">
                             ${p.variants 
-                                ? `<button onclick="openVariantModal('${p.id}')" aria-label="Select ${p.isWeightBased ? 'Weight' : 'Quantity'}" class="w-full bg-brand-50 hover:bg-brand-100 text-brand-700 text-xs uppercase tracking-widest font-black py-3 rounded-xl transition-all shadow-sm active:scale-95 flex items-center justify-center gap-2 btn-haptic border border-brand-200">
+                                ? `<button onclick="openVariantModal('${p.id}')" aria-label="Select Options for ${p.name}" class="w-full bg-brand-50 hover:bg-brand-100 text-brand-700 text-xs uppercase tracking-widest font-black py-3.5 rounded-xl transition-all shadow-sm active:scale-95 flex items-center justify-center gap-2 btn-haptic border border-brand-200">
                                     <i data-lucide="${p.isWeightBased ? 'scale' : 'layers'}" class="w-4 h-4 pointer-events-none"></i> Select ${p.isWeightBased ? 'Weight' : 'Options'}
                                    </button>` 
-                                : `<button onclick="addToCart('${p.id}')" aria-label="Add ${p.name} to order" class="w-full bg-neutral-900 hover:bg-black text-white text-xs uppercase tracking-widest font-black py-3 rounded-xl transition-all shadow-md active:scale-95 flex items-center justify-center gap-2 btn-haptic shimmer-btn">
+                                : `<button onclick="addToCart('${p.id}')" aria-label="Add ${p.name} to order" class="w-full bg-neutral-900 hover:bg-black text-white text-xs uppercase tracking-widest font-black py-3.5 rounded-xl transition-all shadow-md active:scale-95 flex items-center justify-center gap-2 btn-haptic shimmer-btn">
                                     <i data-lucide="shopping-bag" class="w-4 h-4 pointer-events-none"></i> Add to Bag
                                    </button>`
                             }
@@ -619,7 +675,7 @@
         function setCategory(c) { triggerHaptic(); activeCategory = c; renderCategories(); renderShop(); }
         function handleSearch(v) { searchQuery = v; renderShop(); }
 
-        // 🌟 RESTORED: Variant Selection Bottom Sheet
+        // 🌟 RESTORED: Variant Selection Bottom Sheet Closes Flawlessly
         function openVariantModal(id) {
             triggerHaptic();
             const p = inventory.find(i => i.id == id);
@@ -629,7 +685,7 @@
             document.getElementById('variant-modal-subtitle').innerText = p.isWeightBased ? "Select Weight" : "Select Quantity";
             
             document.getElementById('variant-modal-content').innerHTML = p.variants.map((v, idx) => `
-                <button onclick="addToCart('${p.id}', ${idx}); closeVariantModal();" class="w-full flex justify-between items-center p-5 bg-white border border-neutral-100 rounded-2xl mb-3 font-bold active:scale-95 transition-all hover:border-brand-500 shadow-sm group">
+                <button onclick="addToCart('${p.id}', ${idx}); closeVariantModal();" class="w-full flex justify-between items-center p-6 bg-white border border-neutral-100 rounded-3xl mb-3 font-bold active:scale-95 transition-all hover:border-brand-500 shadow-sm group btn-haptic">
                     <span class="uppercase tracking-widest text-xs font-black text-neutral-900 group-hover:text-brand-700">${v.label}</span>
                     <span class="text-brand-600 text-xl font-black">$${v.price}</span>
                 </button>
@@ -676,6 +732,7 @@
             updateCartUI();
         }
 
+        // 🌟 FIXED: Flawless Cart Toggle Logic (Does NOT delete empty cart nodes)
         function toggleCart() {
             triggerHaptic();
             const d = document.getElementById('cart-drawer');
@@ -683,7 +740,7 @@
             if(d.classList.contains('drawer-open')) {
                 d.classList.remove('drawer-open'); o.classList.add('opacity-0'); setTimeout(() => o.classList.add('hidden'), 400);
             } else {
-                document.getElementById('empty-cart-msg').style.display = cart.length === 0 ? 'flex' : 'none';
+                updateCartUI();
                 o.classList.remove('hidden'); setTimeout(() => { o.classList.add('opacity-100'); d.classList.add('drawer-open'); }, 10);
             }
         }
@@ -691,35 +748,72 @@
         function updateCartUI() {
             const total = cart.reduce((s, i) => s + (i.price * i.qty), 0);
             const count = cart.reduce((s, i) => s + i.qty, 0);
+            
+            // Header Badges
             document.getElementById('mobile-header-badge').innerText = count;
             document.getElementById('header-cart-badge').innerText = count;
             document.getElementById('mobile-header-badge').classList.toggle('hidden', count === 0);
             document.getElementById('header-cart-badge').classList.toggle('hidden', count === 0);
             document.getElementById('cart-subtotal').innerText = `$${total}`;
             
-            document.getElementById('empty-cart-msg').style.display = count === 0 ? 'flex' : 'none';
+            // Floating Mobile Cart
+            const floatBtn = document.getElementById('floating-cart-btn');
+            if (floatBtn) {
+                if (count > 0) {
+                    floatBtn.classList.remove('opacity-0', 'translate-y-40', 'pointer-events-none');
+                    document.getElementById('float-cart-count').innerText = count;
+                    document.getElementById('float-cart-total').innerText = `$${total}`;
+                } else {
+                    floatBtn.classList.add('opacity-0', 'translate-y-40', 'pointer-events-none');
+                }
+            }
             
-            document.getElementById('cart-items-list').innerHTML = cart.length === 0 ? document.getElementById('empty-cart-msg').outerHTML : cart.map(i => `
-                <div class="flex items-center gap-4 bg-white p-4 rounded-2xl mb-3 border border-neutral-100 shadow-sm relative">
-                    <img src="${i.image}" class="w-16 h-16 rounded-xl object-cover pointer-events-none">
-                    <div class="flex-1 min-w-0 pr-2 pointer-events-none">
-                        <p class="font-extrabold text-neutral-900 text-sm truncate">${i.name}</p>
-                        ${i.label ? `<p class="text-[9px] text-neutral-400 font-black uppercase tracking-widest mt-0.5">${i.label}</p>` : ''}
-                        <p class="text-brand-600 font-black text-sm mt-1">$${i.price}</p>
+            const emptyMsg = document.getElementById('empty-cart-msg');
+            const itemsList = document.getElementById('cart-items-list');
+            const cartSummary = document.getElementById('cart-summary');
+            
+            if (count === 0) {
+                emptyMsg.classList.remove('hidden');
+                emptyMsg.classList.add('flex');
+                itemsList.innerHTML = '';
+                cartSummary.classList.add('hidden');
+            } else {
+                emptyMsg.classList.add('hidden');
+                emptyMsg.classList.remove('flex');
+                itemsList.innerHTML = cart.map(i => `
+                    <div class="flex items-center gap-4 bg-white p-4 rounded-2xl border border-neutral-100 shadow-sm relative">
+                        <img src="${i.image}" class="w-16 h-16 rounded-xl object-cover pointer-events-none">
+                        <div class="flex-1 min-w-0 pr-2 pointer-events-none">
+                            <p class="font-extrabold text-neutral-900 text-sm truncate">${i.name}</p>
+                            ${i.label ? `<p class="text-[9px] text-neutral-400 font-black uppercase tracking-widest mt-0.5">${i.label}</p>` : ''}
+                            <p class="text-brand-600 font-black text-sm mt-1">$${i.price}</p>
+                        </div>
+                        <div class="flex flex-col items-center gap-1.5 bg-neutral-50 rounded-lg p-1 border border-neutral-100 shrink-0">
+                            <button onclick="updateQty('${i.cartItemId}', 1)" class="w-7 h-7 rounded-md hover:bg-white flex items-center justify-center text-neutral-600 shadow-sm btn-haptic"><i data-lucide="plus" class="w-3 h-3 pointer-events-none"></i></button>
+                            <span class="font-black text-xs text-neutral-900">${i.qty}</span>
+                            <button onclick="updateQty('${i.cartItemId}', -1)" class="w-7 h-7 rounded-md hover:bg-white flex items-center justify-center text-neutral-600 shadow-sm btn-haptic"><i data-lucide="minus" class="w-3 h-3 pointer-events-none"></i></button>
+                        </div>
                     </div>
-                    <div class="flex flex-col items-center gap-1.5 bg-neutral-50 rounded-lg p-1 border border-neutral-100 shrink-0">
-                        <button onclick="updateQty('${i.cartItemId}', 1)" class="w-7 h-7 rounded-md hover:bg-white flex items-center justify-center text-neutral-600 shadow-sm btn-haptic"><i data-lucide="plus" class="w-3 h-3 pointer-events-none"></i></button>
-                        <span class="font-black text-xs text-neutral-900">${i.qty}</span>
-                        <button onclick="updateQty('${i.cartItemId}', -1)" class="w-7 h-7 rounded-md hover:bg-white flex items-center justify-center text-neutral-600 shadow-sm btn-haptic"><i data-lucide="minus" class="w-3 h-3 pointer-events-none"></i></button>
-                    </div>
-                </div>
-            `).join('');
-            document.getElementById('cart-summary').classList.toggle('hidden', count === 0);
+                `).join('');
+                cartSummary.classList.remove('hidden');
+            }
             if(window.lucide) lucide.createIcons();
         }
 
-        function proceedToCheckout() { triggerHaptic(); document.getElementById('cart-items-list').classList.add('hidden'); document.getElementById('cart-summary').classList.add('hidden'); document.getElementById('cart-step-checkout').classList.remove('hidden'); }
-        function backToCart() { triggerHaptic(); document.getElementById('cart-items-list').classList.remove('hidden'); document.getElementById('cart-summary').classList.remove('hidden'); document.getElementById('cart-step-checkout').classList.add('hidden'); }
+        // 🌟 RESTORED: Advanced Checkout Form Handling
+        function proceedToCheckout() { 
+            triggerHaptic(); 
+            document.getElementById('cart-items-list').parentElement.classList.add('hidden'); 
+            document.getElementById('cart-summary').classList.add('hidden'); 
+            document.getElementById('cart-step-checkout').classList.remove('hidden'); 
+            if(window.lucide) lucide.createIcons();
+        }
+        function backToCart() { 
+            triggerHaptic(); 
+            document.getElementById('cart-items-list').parentElement.classList.remove('hidden'); 
+            document.getElementById('cart-summary').classList.remove('hidden'); 
+            document.getElementById('cart-step-checkout').classList.add('hidden'); 
+        }
 
         function handleZipInput(val) { if(val.length === 5) calculateDelivery(); }
         function calculateDelivery() {
@@ -729,29 +823,46 @@
             const res = document.getElementById('delivery-zone-result');
             res.classList.remove('hidden');
             res.innerText = checkoutData.fee === 0 ? "Free Local Delivery!" : "+$5 Delivery (Standard Zone)";
-            document.getElementById('final-submit').disabled = false;
+            validateFinal();
         }
 
         function setRoute(r) { 
             triggerHaptic(); document.getElementById('route-select').value = r; 
             document.querySelectorAll('#route-buttons button').forEach(b => b.classList.remove('border-brand-500', 'bg-brand-50', 'text-brand-700'));
             document.getElementById(`route-btn-${r}`).classList.add('border-brand-500', 'bg-brand-50', 'text-brand-700');
+            validateFinal();
         }
         function setPayment(p) { 
             triggerHaptic(); document.getElementById('pay-select').value = p; 
             document.querySelectorAll('#pay-buttons button').forEach(b => b.classList.remove('border-brand-500', 'bg-brand-50', 'text-brand-700'));
             document.getElementById(`pay-btn-${p}`).classList.add('border-brand-500', 'bg-brand-50', 'text-brand-700');
+            validateFinal();
         }
+
+        function validateFinal() {
+            const street = document.getElementById('checkout-street').value;
+            const route = document.getElementById('route-select').value;
+            const pay = document.getElementById('pay-select').value;
+            const btn = document.getElementById('final-submit');
+            if (street && route && pay && checkoutData.fee !== null) {
+                btn.disabled = false;
+            } else {
+                btn.disabled = true;
+            }
+        }
+
+        document.getElementById('checkout-street').addEventListener('input', validateFinal);
 
         function submitOrder() {
             triggerHaptic();
             const street = document.getElementById('checkout-street').value;
+            const city = document.getElementById('checkout-city').value;
             const zip = document.getElementById('checkout-zip').value;
             const route = document.getElementById('route-select').value;
             const pay = document.getElementById('pay-select').value;
             const total = cart.reduce((s, i) => s + (i.price * i.qty), 0);
             
-            let msg = `🔥 585 DIRECT ORDER 🔥\nAddr: ${street}, ${zip}\nTime: ${route}\nPay: ${pay}\n\n`;
+            let msg = `🔥 585 DIRECT ORDER 🔥\nAddr: ${street}, ${city} ${zip}\nTime: ${route}\nPay: ${pay}\n\n`;
             cart.forEach(i => msg += `${i.qty}x ${i.name} ${i.label ? `[${i.label}]` : ''} ($${i.price*i.qty})\n`);
             msg += `\nEST TOTAL: $${total + checkoutData.fee}`;
             window.open(`sms:${DISPATCH_PHONE}?&body=${encodeURIComponent(msg)}`, '_blank');
